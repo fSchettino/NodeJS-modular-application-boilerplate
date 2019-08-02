@@ -24,9 +24,9 @@ async function startModule(module) {
 }
 
 // 2nd - Validate module configuration
-async function validateModuleConfiguration(module, config, validator) {
+function validateModuleConfiguration(module, config, validator) {
   try {
-    const validationResponse = await configValidator[validator](config);
+    const validationResponse = configValidator[validator](config);
     console.log(
       '\x1b[32m',
       `✔ ${module} config validated: ${JSON.stringify(validationResponse)}`,

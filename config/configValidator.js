@@ -4,7 +4,7 @@ import Joi from '@hapi/joi';
 export default class ConfigValidator {
   // IMPORTANT! - Validator method naming convention is: MODULES_LIST item + ConfigValidator
   // e.g., if MODULES_LIST item in .env file is "module1" then validator method name must be "module1ConfigValidator"
-  async module1ConfigValidator(config) {
+  module1ConfigValidator(config) {
     try {
       const schema = Joi.object().keys({
         alias: Joi.string(),
@@ -24,7 +24,7 @@ export default class ConfigValidator {
     }
   }
 
-  async module2ConfigValidator(config) {
+  module2ConfigValidator(config) {
     try {
       const schema = Joi.object().keys({
         alias: Joi.string(),
