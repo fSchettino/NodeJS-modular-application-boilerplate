@@ -1,0 +1,32 @@
+{
+  "name": "demo-process-2",
+  "version": "1.0.0",
+  "description": "Demo process for Node JS multi process boilerplate architecture",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node index.js"
+  },
+  "author": "Fabio Schettino",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2"
+  }
+}
