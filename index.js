@@ -12,7 +12,6 @@ const configValidator = new ConfigValidator();
 // 3rd - Start module through dynamic import
 async function startModule(module) {
   try {
-    console.log('\x1b[36m', `Launching ${module}...`, '\x1b[0m');
     await import(`./lib/${module}`);
   } catch (error) {
     console.log(
@@ -24,14 +23,9 @@ async function startModule(module) {
 }
 
 // 2nd - Validate module configuration
-function validateModuleConfiguration(module, config, validator) {
+async function validateModuleConfiguration(module, config, validator) {
   try {
-    const validationResponse = configValidator[validator](config);
-    console.log(
-      '\x1b[32m',
-      `✔ ${module} config validated: ${JSON.stringify(validationResponse)}`,
-      '\x1b[0m'
-    );
+    await configValidator[validator](config);
     startModule(module);
   } catch (error) {
     console.log(
@@ -43,7 +37,7 @@ function validateModuleConfiguration(module, config, validator) {
 }
 
 // 1st - Generate params dinamically for each module and call validation function
-modulesList.map(module => {
+function launchValidation(module) {
   try {
     // Generate configuration name
     const configName = `${module}Config`;
@@ -53,6 +47,7 @@ modulesList.map(module => {
     const validatorName = `${configName}Validator`;
     // Validate current configuration
     validateModuleConfiguration(module, configObject, validatorName);
+    // console.log('\x1b[36m', `${module} config validation lauched`, '\x1b[0m');
   } catch (error) {
     console.log(
       '\x1b[31m',
@@ -60,9 +55,6 @@ modulesList.map(module => {
       '\x1b[0m'
     );
   }
-  return console.log(
-    '\x1b[36m',
-    `${module} config validation lauched`,
-    '\x1b[0m'
-  );
-});
+}
+
+modulesList.map(launchValidation);
