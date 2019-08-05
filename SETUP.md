@@ -177,3 +177,15 @@ Install [Istanbul](https://istanbul.js.org/) test coverage package for your proj
     "coverage": "nyc mocha --opts ./mocha.opts --require @babel/register",
   },
 ```
+
+To ensure your project pass all testing before committing changes install [pre-commit](https://www.npmjs.com/package/pre-commit) package using following command in VSCode shell.
+
+- npm i -D pre-commit
+
+#### Add a "pre-commit" attribute to "package.json" witch calls test command before committing changes:
+
+```
+"pre-commit": [
+    "test"
+  ],
+```
