@@ -1,26 +1,12 @@
 // Can accept only one argument
 // Require the argument to be an object and throws an error if argument is not an object
-// Validate configuration object against a schema and return an object with following structure:
-/* {
-        error: null,
-        value: {
-            alias: 'Module 2',
-            port: 4002,
-            dbName: '{ database name }',
-            dbUser: '{ database user }',
-            dbPassword: '{ database password }'
-        },
-        then: [Function: then],
-        catch: [Function: catch]
-    } */
-// Return an error if object attributes doesn't match schema
 
 import { expect } from 'chai';
 import ConfigValidator from './configValidator';
 
 const configValidator = new ConfigValidator();
 
-const testConfig = {
+const validConfig = {
   alias: 'Module 1',
   port: 4001,
   dbName: '{ database name }',
@@ -28,36 +14,36 @@ const testConfig = {
   dbPassword: '{ database password }'
 };
 
-function thenFunc() {
-  return console.log('Then function');
-}
-
-function catchFunc() {
-  return console.log('Catch function');
-}
-
-const returnedObject = {
-  error: null,
-  value: {
-    alias: 'Module 1',
-    port: 4001,
-    dbName: '{ database name }',
-    dbUser: '{ database user }',
-    dbPassword: '{ database password }'
-  },
-  then: thenFunc(),
-  catch: catchFunc()
+const invalidConfig = {
+  alias: 1,
+  port: 70000,
+  dbName: null,
+  dbUser: null,
+  dbPassword: null
 };
-
-console.log(configValidator.module1ConfigValidator(testConfig));
 
 describe('ConfigValidator class methods test suite', () => {
   describe('module1ConfigValidator method tests', () => {
-    context('Require the argument to be an object', () => {
-      it('Should return a new object', () => {
-        const result = configValidator.module1ConfigValidator(testConfig);
-        expect(result).to.deep.equal(returnedObject);
-      });
+    it('Should return result.error === null', () => {
+      const result = configValidator.module1ConfigValidator(validConfig);
+      expect(result.error).to.eql(null);
+    });
+
+    it('Should return an error if schema is invalid', () => {
+      const result = configValidator.module1ConfigValidator(invalidConfig);
+      expect(result.error.name).to.eql('ValidationError');
+    });
+  });
+
+  describe('module2ConfigValidator method tests', () => {
+    it('Should return result.error === null', () => {
+      const result = configValidator.module2ConfigValidator(validConfig);
+      expect(result.error).to.eql(null);
+    });
+
+    it('Should return an error if schema is invalid', () => {
+      const result = configValidator.module2ConfigValidator(invalidConfig);
+      expect(result.error.name).to.eql('ValidationError');
     });
   });
 });
