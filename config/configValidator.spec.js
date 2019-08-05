@@ -1,6 +1,3 @@
-// Can accept only one argument
-// Require the argument to be an object and throws an error if argument is not an object
-
 import { expect } from 'chai';
 import ConfigValidator from './configValidator';
 
