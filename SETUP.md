@@ -7,10 +7,8 @@
 Install [NodeJs](https://nodejs.rg/").<br>
 Install Visual Studio Code [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions using following commands in VSCode shell.
 
-<ul>
-    <li>code --install-extension dbaeumer.vscode-eslint</li>
-    <li>code --install-extension esbenp.prettier-vscode</li>
-</ul>
+- code --install-extension dbaeumer.vscode-eslint
+- code --install-extension esbenp.prettier-vscode
 
 #### Edit VSCode settings (File > Preferences > Settings) and add following configuration:
 
@@ -30,9 +28,8 @@ Install Visual Studio Code [ESLint](https://marketplace.visualstudio.com/items?i
 
 Install [Nodemon](https://nodemon.io/) package for your project using following command in VSCode shell.
 
-<ul>
-    <li>npm i -D nodemon</li>
-</ul>
+- npm i -D nodemon
+
 <i>To install Nodemon globally execute: "npm i -g nodemon" command</i>
 
 #### Edit project "package.json" script section in order to use nodemon in development. (<i>Never use Nodemon in production</i>)
@@ -45,9 +42,7 @@ Install [Nodemon](https://nodemon.io/) package for your project using following 
 
 Install [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) packages for your project using following command in VSCode shell.
 
-<ul>
-    <li>npm i -D eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-html eslint-plugin-import eslint-plugin-prettier babel-eslint prettier</li>
-</ul>
+- npm i -D eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-html eslint-plugin-import eslint-plugin-prettier babel-eslint prettier
 
 #### Create an ".eslintrc.js" file into your project root folder and copy/paste following content:
 
@@ -93,9 +88,7 @@ module.exports = {
 
 Install [Babel](https://babeljs.io/) JavaScript compiler packages for your project using following command in VSCode shell.
 
-<ul>
-    <li>npm i -D @babel/core @babel/cli @babel/preset-env @babel/node babel-plugin-dynamic-import-node-babel-7</li>
-</ul>
+- npm i -D @babel/core @babel/cli @babel/preset-env @babel/node babel-plugin-dynamic-import-node-babel-7
 
 #### Create an ".babelrc" file into your project root folder and copy/paste following content:
 
@@ -114,6 +107,8 @@ Install [Babel](https://babeljs.io/) JavaScript compiler packages for your proje
     "start": "babel-node index.js"
   },
 ```
+
+<br>
 
 # Debug configuration setup
 
@@ -148,4 +143,37 @@ Project setup include Nodemon package in order to restart automatically your ser
     }
   ]
 }
+```
+
+<br>
+
+# Test configuration setup
+
+Install [Mocha](https://mochajs.org/) testing framework for your project using following command in VSCode shell.
+
+- npm i -D mocha
+
+Install [Chai](https://www.chaijs.com/) assertion library for your project using following command in VSCode shell.
+
+- npm i -D chai
+
+Install [Istanbul](https://istanbul.js.org/) test coverage package for your project using following command in VSCode shell.
+
+- npm i -D nyc
+
+#### Create a "mocha.opts" file into your project root folder and copy/paste following content:
+
+```
+./**/*.spec.js
+--recursive
+--exclude ./node_modules/**/*.js
+```
+
+#### Add following commands to "package.json" script section:
+
+```
+"scripts": {
+    "test": "mocha --opts ./mocha.opts --watch --require @babel/register",
+    "coverage": "nyc mocha --opts ./mocha.opts --require @babel/register",
+  },
 ```
