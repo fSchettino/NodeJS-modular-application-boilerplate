@@ -16,12 +16,12 @@ Setup your development environment as described in [Development environment setu
 
 ## Commands
 
-- Development mode > "<strong>npm run dev</strong>".
-- Test mode > "<strong>npm test</strong>".
-- Testing coverage report > "<strong>npm run coverage</strong>"
+- Run project in development mode > "<strong>npm run dev</strong>".
+- Run project in test mode > "<strong>npm test</strong>".
+- Check testing coverage > "<strong>npm run coverage</strong>"
 - Start project > "<strong>npm start</strong>"
 
-<i>Important! - <strong>npm start</strong> command is for production mode witch means you need to set enviroment variables in the production server.<br><strong>dotenv</strong> module, which loads environment variables from .env file, only is required if NODE_ENV variable is different from "production"</i>
+<i>Important! - <strong>npm start</strong> command is for production mode witch means you need to set enviroment variables in the production server.<br><strong>dotenv</strong> module, which loads environment variables from .env file, only is required if NODE_ENV variable is different from "production", which means if you execute <strong>npm start</strong> command without setting environment variables in the server, you'll get an error.</i>
 
 ## Customization
 
