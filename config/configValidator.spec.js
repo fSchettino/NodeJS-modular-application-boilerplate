@@ -24,7 +24,7 @@ const invalidConfig = {
 
 describe('ConfigValidator class methods test suite', () => {
   describe('module1ConfigValidator method tests', () => {
-    it('Should return result.error === null', () => {
+    it('Should return result.error === null if schema is valid', () => {
       const result = configValidator.module1ConfigValidator(validConfig);
       expect(result.error).to.eql(null);
     });
@@ -36,7 +36,7 @@ describe('ConfigValidator class methods test suite', () => {
   });
 
   describe('module2ConfigValidator method tests', () => {
-    it('Should return result.error === null', () => {
+    it('Should return result.error === null if schema is valid', () => {
       const result = configValidator.module2ConfigValidator(validConfig);
       expect(result.error).to.eql(null);
     });
