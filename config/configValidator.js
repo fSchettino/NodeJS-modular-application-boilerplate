@@ -6,7 +6,7 @@ export default class ConfigValidator {
   // e.g., if MODULES_LIST item in .env file is "module1" then validator method name must be "module1ConfigValidator"
   module1ConfigValidator(config) {
     try {
-      const schema = Joi.object().keys({
+      const schema = Joi.object({
         alias: Joi.string(),
         port: Joi.number()
           .integer()
@@ -17,7 +17,7 @@ export default class ConfigValidator {
         dbUser: Joi.string().required(),
         dbPassword: Joi.string().required()
       });
-      const result = Joi.validate(config, schema);
+      const result = schema.validate(config);
       return result;
     } catch (error) {
       return error;
@@ -26,7 +26,7 @@ export default class ConfigValidator {
 
   module2ConfigValidator(config) {
     try {
-      const schema = Joi.object().keys({
+      const schema = Joi.object({
         alias: Joi.string(),
         port: Joi.number()
           .integer()
@@ -37,7 +37,7 @@ export default class ConfigValidator {
         dbUser: Joi.string().required(),
         dbPassword: Joi.string().required()
       });
-      const result = Joi.validate(config, schema);
+      const result = schema.validate(config);
       return result;
     } catch (error) {
       return error;
