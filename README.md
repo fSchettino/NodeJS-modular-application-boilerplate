@@ -14,6 +14,13 @@ Setup your development environment as described in [Development environment setu
 4. Run project > "npm run dev".
 5. Check modules opening yuor web browser and going to http://localhost:4001/ and http://localhost:4002/.
 
+## Commands
+
+- Development mode > "<strong>npm run dev</strong>".
+- Test mode > "<strong>npm test</strong>".
+- Testing coverage report > "<strong>npm run coverage</strong>"
+- Start project > "<strong>npm start</strong>"
+
 <i>Important! - <strong>npm start</strong> command is for production mode witch means you need to set enviroment variables in the production server.<br><strong>dotenv</strong> module, which loads environment variables from .env file, only is required if NODE_ENV variable is different from "production"</i>
 
 ## Customization
