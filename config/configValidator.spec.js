@@ -1,7 +1,5 @@
 import { expect } from 'chai';
-import ConfigValidator from './configValidator';
-
-const configValidator = new ConfigValidator();
+import configValidator from './configValidator';
 
 const validConfig = {
   alias: 'Module 1',
@@ -20,6 +18,13 @@ const invalidConfig = {
 };
 
 describe('ConfigValidator class methods test suite', () => {
+  describe('constructor test', () => {
+    it('Should return an istance if no instance has been created', () => {
+      const result = configValidator.constructor();
+      expect(result).to.eql(configValidator);
+    });
+  });
+
   describe('module1ConfigValidator method tests', () => {
     it('Should return result.error === null if schema is valid', () => {
       const result = configValidator.module1ConfigValidator(validConfig);
