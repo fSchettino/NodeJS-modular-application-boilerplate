@@ -1,5 +1,12 @@
 // Import configuration validator
 import configValidator from './config/configValidator';
+
+// require dotenv module to read .env file from root if environment is different from production
+if (process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line global-require
+  require('dotenv').config({ silent: true });
+}
+
 // Import modules configuration based on node environment
 // eslint-disable-next-line import/no-dynamic-require
 const modulesConfig = require(`./config/configurations/${process.env.NODE_ENV}`);
