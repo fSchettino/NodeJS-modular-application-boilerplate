@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node index.js",
-    "test": "cross-env NODE_ENV=test mocha --opts ./mocha.opts --watch --require @babel/register",
+    "test": "cross-env NODE_ENV=test mocha --opts ./mocha.opts --require @babel/register",
+    "watch-test": "cross-env NODE_ENV=test mocha --opts ./mocha.opts --watch --require @babel/register",
     "coverage": "cross-env NODE_ENV=test nyc mocha --opts ./mocha.opts --require @babel/register",
     "start": "cross-env NODE_ENV=production babel-node index.js"
   },
