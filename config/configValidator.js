@@ -1,7 +1,15 @@
 // Import Object schema description language and validator
 import Joi from '@hapi/joi';
 
-export default class ConfigValidator {
+class ConfigValidator {
+  // Singleton pattern
+  constructor() {
+    if (!ConfigValidator.instance) {
+      ConfigValidator.instance = this;
+    }
+    return ConfigValidator.instance;
+  }
+
   // IMPORTANT! - Validator method naming convention is: MODULES_LIST item + ConfigValidator
   // e.g., if MODULES_LIST item in .env file is "module1" then validator method name must be "module1ConfigValidator"
   module1ConfigValidator(config) {
@@ -44,3 +52,8 @@ export default class ConfigValidator {
     }
   }
 }
+
+const configValidator = new ConfigValidator();
+Object.freeze(configValidator);
+
+export default configValidator;
