@@ -17,7 +17,8 @@ Setup your development environment as described in [Development environment setu
 ## Commands
 
 - Run project in development mode > "<strong>npm run dev</strong>".
-- Run project in test mode > "<strong>npm test</strong>".
+- Run project test > "<strong>npm test</strong>".
+- Run project test with watch flag to allow reload project automatically when test is modified > "<strong>npm run watch-test</strong>".
 - Check testing coverage > "<strong>npm run coverage</strong>"
 - Start project > "<strong>npm start</strong>"
 
