@@ -173,10 +173,15 @@ Install [Istanbul](https://istanbul.js.org/) test coverage package for your proj
 
 ```
 "scripts": {
-    "test": "mocha --opts ./mocha.opts --watch --require @babel/register",
+    "test": "cross-env NODE_ENV=test mocha --opts ./mocha.opts --require @babel/register",
+    "watch-test": "cross-env NODE_ENV=test mocha --opts ./mocha.opts --watch --require @babel/register",
     "coverage": "nyc mocha --opts ./mocha.opts --require @babel/register",
   },
 ```
+
+<i><strong>test</strong> command is used in <strong>pre-commit</strong> stage to ensure that all your tests run succesfully before commit changes.</i>
+
+<i><strong>watch-test</strong> command allow reload project automatically when tests are modified. (Use it while you're writing your tests).</i>
 
 To ensure your project pass all testing before committing changes install [pre-commit](https://www.npmjs.com/package/pre-commit) package using following command in VSCode shell.
 
