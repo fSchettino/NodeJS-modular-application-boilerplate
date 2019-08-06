@@ -1,9 +1,3 @@
-// require dotenv module to read .env file from root if environment is different from production
-if (process.env.NODE_ENV !== 'production') {
-  // eslint-disable-next-line global-require
-  require('dotenv').config({ silent: true });
-}
-
 module.exports = {
   // IMPORTANT! - Module configuration object naming convention is: MODULES_LIST item + Config
   // e.g., if MODULES_LIST item in .env file is "module1" then process configuration object name must be "module1Config"
