@@ -6,6 +6,20 @@ Modular application project startup architecture.
 
 Setup your development environment as described in [Development environment setup](SETUP.md) section.</a>
 
+## Stack:
+
+[NodeJs](https://nodejs.rg/)<br>
+[Express](http://expressjs.com/)<br>
+[Babel](https://babeljs.io)<br>
+[ESLint](https://eslint.org)<br>
+[Joi](https://github.com/hapijs/joi)<br>
+[Mocha](https://mochajs.org)<br>
+[Chai](https://www.chaijs.com/)<br>
+[Istanbul](https://istanbul.js.org/)<br>
+[Nodemon](https://nodemon.io/)<br>
+[Cross-env](https://www.npmjs.com/package/cross-env)<br>
+[Dotenv](https://www.npmjs.com/package/dotenv)<br>
+
 ## Installing demo
 
 1. Clone this repository in your machine.
