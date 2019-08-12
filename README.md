@@ -4,7 +4,7 @@ Modular application project startup architecture.
 
 ## Requirements
 
-Setup your development environment as described in [Development environment setup](SETUP.md) section.</a>
+Setup your development environment as described in [Development environment setup](https://github.com/FSVD/Documentation/blob/master/NodeJS-environment-and-project-setup.md) section.</a>
 
 ## Stack:
 
